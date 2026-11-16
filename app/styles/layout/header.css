@@ -1,0 +1,291 @@
+/* ========================================
+   HEADER LAYOUT
+   Fixed navigation and mobile menu
+   ======================================== */
+
+/* Skip link — offscreen until focused, then pinned over the header. */
+.skip-link {
+  position: fixed;
+  top: 0.5rem;
+  left: 0.5rem;
+  z-index: calc(var(--z-header) + 1);
+  padding: 0.75rem 1.25rem;
+  background: var(--color-accent-fill);
+  color: var(--color-on-accent);
+  font-family: var(--font-display);
+  font-size: var(--text-ui);
+  font-weight: var(--font-weight-medium);
+  border-radius: var(--radius-sm);
+  transform: translateY(-200%);
+  transition: transform var(--duration-fast) var(--ease-out);
+}
+
+.skip-link:focus-visible {
+  transform: translateY(0);
+  outline: var(--rule-strong) solid var(--color-focus-ring-fill);
+  outline-offset: 2px;
+}
+
+/* The main region takes focus programmatically via the skip link; it should
+   not draw a ring for that. */
+.page-main:focus,
+.not-found-page:focus {
+  outline: none;
+}
+
+/* An opaque paper header with a structural hairline. The colour is the page's
+   own, which `theme-color` also gives the browser chrome above it. */
+.site-header {
+  container: site-header / inline-size;
+  align-items: center;
+  background-color: var(--color-bg-alt);
+  border-bottom: var(--rule) solid var(--color-border);
+  display: flex;
+  height: var(--header-height);
+  justify-content: space-between;
+  left: 0;
+  line-height: 1;
+  padding: 0 max(2rem, calc((100% - var(--measure-page)) / 2 + 2rem));
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: var(--z-header);
+  transition: background-color var(--duration-fast) var(--ease-out);
+}
+
+@media (max-width: 735px) {
+  .site-header {
+    line-height: var(--header-height);
+    padding: 0 1.5rem;
+  }
+}
+
+/* ========================================
+   SLIDE MENU
+   ======================================== */
+
+/* A native modal dialog. The UA's centred, bordered, padded box is reset to a
+   full-height panel against the right edge, and the sheet fills it, so a
+   click on the dialog itself is a click on its backdrop. */
+.slide-menu {
+  inset: 0 0 0 auto;
+  width: 300px;
+  max-width: 82vw;
+  /* The UA sizes a dialog to its content; the panel runs the full height. */
+  height: auto;
+  max-height: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-left: var(--rule) solid var(--color-fg-bold);
+  background-color: var(--color-bg-alt);
+  color: inherit;
+  overflow-y: auto;
+  /* Scrolling stops at the menu's edges instead of moving the page, and the
+     backdrop below does the same. Safari does not yet honour this on a box
+     that cannot scroll, so there the page behind the backdrop still can; a
+     `position: fixed` body lock would jump the scroll position instead. */
+  overscroll-behavior: contain;
+  transform: translateX(100%);
+  /* `display` and `overlay` keep the dialog in the top layer until it has
+     slid out. Browsers without `overlay` close it at once. */
+  transition:
+    transform var(--duration-normal) var(--ease-menu),
+    display var(--duration-normal) allow-discrete,
+    overlay var(--duration-normal) allow-discrete;
+}
+
+.slide-menu[open] {
+  transform: translateX(0);
+}
+
+.slide-menu::backdrop {
+  background: var(--color-overlay-darker);
+  opacity: 0;
+  overflow: hidden;
+  overscroll-behavior: contain;
+  transition:
+    opacity var(--duration-normal) var(--ease-menu),
+    display var(--duration-normal) allow-discrete,
+    overlay var(--duration-normal) allow-discrete;
+}
+
+.slide-menu[open]::backdrop {
+  opacity: 1;
+}
+
+@starting-style {
+  .slide-menu[open] {
+    transform: translateX(100%);
+  }
+
+  .slide-menu[open]::backdrop {
+    opacity: 0;
+  }
+}
+
+.slide-menu-sheet {
+  min-height: 100%;
+  padding: 1.5rem 1.5rem 0;
+}
+
+/* Half a step between the theme toggle and the menu button. */
+.hamburger-container {
+  padding-left: 0.5em;
+}
+
+/* Hamburger button: an explicit 44x44 target, because its wrappers take
+   their height from it rather than from the header. */
+.hamburger-button {
+  align-items: center;
+  cursor: pointer;
+  display: flex;
+  min-width: 44px;
+  min-height: 44px;
+  justify-content: center;
+}
+
+.hamburger-button:hover {
+  opacity: 0.5;
+}
+
+.hamburger-button:focus-visible .hamburger-icon span {
+  background-color: var(--color-accent);
+}
+
+/* CSS hamburger icon */
+.hamburger-icon {
+  display: block;
+  height: 14px;
+  position: relative;
+  width: 20px;
+}
+
+.hamburger-icon span {
+  background-color: var(--color-fg-bold);
+  border-radius: 2px;
+  display: block;
+  height: 2px;
+  left: 0;
+  position: absolute;
+  transition:
+    top var(--duration-normal) var(--ease-menu),
+    bottom var(--duration-normal) var(--ease-menu),
+    opacity var(--duration-normal) var(--ease-menu),
+    transform var(--duration-normal) var(--ease-menu);
+  width: 100%;
+}
+
+.hamburger-icon span:nth-child(1) {
+  top: 0;
+}
+
+.hamburger-icon span:nth-child(2) {
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.hamburger-icon span:nth-child(3) {
+  bottom: 0;
+}
+
+/* Open state - morph to X */
+.hamburger-icon--open span:nth-child(1) {
+  top: 50%;
+  transform: translateY(-50%) rotate(45deg);
+}
+
+.hamburger-icon--open span:nth-child(2) {
+  opacity: 0;
+  transform: translateY(-50%) scaleX(0);
+}
+
+.hamburger-icon--open span:nth-child(3) {
+  bottom: 50%;
+  transform: translateY(50%) rotate(-45deg);
+}
+
+.slide-menu-close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  margin: 0 -0.75rem 0.5rem auto;
+  border-radius: var(--radius-sm);
+  color: var(--color-fg-light);
+  font-size: 1.5rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: color var(--duration-fast) var(--ease-out);
+}
+
+.slide-menu-close:hover {
+  color: var(--color-fg-bold);
+}
+
+.slide-menu-close:focus-visible {
+  outline-offset: 2px;
+}
+
+/* Mobile navigation shares the desktop type and hairline structure. */
+.hamburger-ul {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.hamburger-ul li {
+  border-bottom: var(--rule) solid var(--color-border);
+}
+
+.hamburger-ul li:first-child {
+  border-top: var(--rule) solid var(--color-border);
+}
+
+.hamburger-ul li a {
+  display: block;
+  padding: 0.9rem 0;
+  border-radius: 0;
+}
+
+/* The global :focus-visible ring, drawn inside the row. In a focus-trapped
+   dialog it is the only sign of the keyboard's place. */
+.hamburger-ul li a:focus-visible {
+  outline-offset: -2px;
+}
+
+/* Where you are, in the mobile menu. */
+.hamburger-ul li a.active span {
+  color: var(--color-accent);
+}
+
+.hamburger-ul li a span {
+  font-family: var(--font-display);
+  font-size: var(--text-ui);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-fg-light);
+  letter-spacing: var(--tracking-normal);
+  transition: color var(--duration-fast) var(--ease-out);
+}
+
+.hamburger-ul li a:hover span,
+.hamburger-ul li a:focus-visible span {
+  color: var(--color-fg-bold);
+}
+
+/* The index entry is the person's name, not a section label, so it is set
+   like the header's wordmark and sits above the rule. */
+.hamburger-ul li:has(.index-li) {
+  border-bottom-color: var(--color-fg-bold);
+}
+
+.hamburger-ul li a .index-li {
+  font-family: var(--font-display);
+  font-size: var(--text-md);
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: var(--tracking-tight);
+  color: var(--color-fg-bold);
+}

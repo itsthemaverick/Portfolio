@@ -1,0 +1,117 @@
+'use client';
+
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+import { useCallback, useEffect, useRef, useState } from 'react';
+import { createPortal, flushSync } from 'react-dom';
+
+import routes from '../../data/routes';
+import { isActiveRoute } from '../../lib/routes';
+import { smartQuotes } from '../../lib/typography';
+import SlideMenu from './SlideMenu';
+
+const MENU_ID = 'mobile-nav-menu';
+
+export default function Hamburger() {
+  const pathname = usePathname();
+  const [open, setOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
+  const buttonRef = useRef<HTMLButtonElement>(null);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  const toggleMenu = useCallback(() => setOpen((prev) => !prev), []);
+  const closeMenu = useCallback(() => setOpen(false), []);
+
+  useEffect(() => {
+    const button = buttonRef.current;
+    if (!open || !button) return;
+
+    // Observe the trigger so CSS owns the breakpoint. Hiding it alone leaves
+    // the portalled dialog open, and modal, on a wider viewport.
+    const observer = new ResizeObserver(() => {
+      if (button.getClientRects().length > 0) return;
+
+      // Flushed, so the dialog is closed before focus moves: nothing outside
+      // a modal dialog can take focus.
+      flushSync(closeMenu);
+
+      // The hidden trigger cannot receive restored focus. Hand it to the
+      // current desktop route, or the home link when no route is selected.
+      const header = button.closest('header');
+      const target =
+        header?.querySelector<HTMLAnchorElement>('a[aria-current="page"]') ??
+        header?.querySelector<HTMLAnchorElement>('a[href]');
+      target?.focus({ preventScroll: true });
+    });
+
+    observer.observe(button);
+    return () => observer.disconnect();
+  }, [open, closeMenu]);
+
+  const slideMenu = (
+    <SlideMenu id={MENU_ID} isOpen={open} onClose={closeMenu}>
+      {/* A modal dialog keeps focus inside it, so it needs a way out that is
+          not the Escape key alone. */}
+      <button
+        type="button"
+        className="slide-menu-close"
+        onClick={closeMenu}
+        aria-label="Close navigation menu"
+      >
+        <span aria-hidden="true">×</span>
+      </button>
+      <ul className="hamburger-ul">
+        {routes
+          .filter((l) => l.primary !== false)
+          .map((l) => {
+            const active = isActiveRoute(pathname, l.path);
+
+            return (
+              <li key={l.label}>
+                {/* Navigation labels, not document sections, so not headings. */}
+                <Link
+                  href={l.path}
+                  onClick={closeMenu}
+                  className={active ? 'active' : undefined}
+                  aria-current={active ? 'page' : undefined}
+                >
+                  <span className={l.index ? 'index-li' : undefined}>
+                    {smartQuotes(l.label)}
+                  </span>
+                </Link>
+              </li>
+            );
+          })}
+      </ul>
+    </SlideMenu>
+  );
+
+  return (
+    <>
+      <div className="hamburger-container">
+        <button
+          ref={buttonRef}
+          type="button"
+          onClick={toggleMenu}
+          className="hamburger-button"
+          aria-label={open ? 'Close navigation menu' : 'Open navigation menu'}
+          aria-expanded={open}
+          aria-controls={MENU_ID}
+        >
+          {/* CSS-based hamburger/close icon for cross-platform consistency */}
+          <span
+            className={`hamburger-icon${open ? ' hamburger-icon--open' : ''}`}
+          >
+            <span />
+            <span />
+            <span />
+          </span>
+        </button>
+      </div>
+      {mounted && createPortal(slideMenu, document.body)}
+    </>
+  );
+}
