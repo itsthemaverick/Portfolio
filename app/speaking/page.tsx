@@ -11,7 +11,7 @@ import { AUTHOR_NAME } from '@/lib/utils';
 
 const PAGE_TITLE = 'Speaking';
 
-const SPEAKING_DESCRIPTION = `Panels and demos on AI security by ${AUTHOR_NAME}: prompt injection, agent security, and red teaming LLM applications.`;
+const SPEAKING_DESCRIPTION = `Presentations, competition pitches, and technical demos by ${AUTHOR_NAME}.`;
 
 export const metadata: Metadata = createPageMetadata({
   title: PAGE_TITLE,
@@ -37,16 +37,16 @@ export default function SpeakingPage() {
         <header className="projects-header">
           <h1 className="page-title">{PAGE_TITLE}</h1>
           <p className="page-subtitle page-prose">
-            I talk about security for AI systems: prompt injection, agent
-            security, and red teaming LLM applications. Most of it comes from
-            building Promptfoo and now working on cyber products at OpenAI.
+            Technical presentations, competition pitches, and hackathon demos
+            covering AI systems, decentralized environments, and agricultural
+            marketplaces.
           </p>
         </header>
 
         <section className="projects-group" aria-labelledby="speaking-public">
           <div className="section-header">
             <h2 id="speaking-public" className="section-heading">
-              Public sessions
+              Presentations &amp; Pitches
             </h2>
           </div>
           <ol className="projects-register">
@@ -61,13 +61,13 @@ export default function SpeakingPage() {
         <section className="projects-group" aria-labelledby="speaking-private">
           <div className="section-header">
             <h2 id="speaking-private" className="section-heading">
-              Closed-door sessions
+              Collaborations &amp; Events
             </h2>
           </div>
           <p className="page-prose">
-            I also run closed-door sessions with security and engineering teams
-            on behalf of OpenAI, which aren’t listed here. If you’re organizing
-            an event or working on the same problems,{' '}
+            I regularly organize and lead technical workshops, hackathons, and
+            coding sessions through ByteMinds Society and college events. If
+            you’re interested in collaborating on an event or project,{' '}
             <Link href="/contact/">get in touch</Link>.
           </p>
         </section>

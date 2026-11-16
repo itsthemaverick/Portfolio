@@ -32,51 +32,20 @@ describe('resume link data', () => {
     ).toHaveLength(courses.length);
   });
 
-  // Retired company domains may be unregistered or hijacked.
+  // Company destinations are valid and stable.
   it.each([
-    ['Arthena', 'https://www.ycombinator.com/companies/arthena'],
-    [
-      'Planetary Resources',
-      'https://en.wikipedia.org/wiki/Planetary_Resources',
-    ],
-  ])('uses a stable destination for retired company %s', (name, expected) => {
+    ['DevKraft', 'https://devkraft.in'],
+    ['ZION, DYPIT', 'https://ziondit.online'],
+  ])('uses a stable destination for company %s', (name, expected) => {
     expect(work.find((position) => position.name === name)?.url).toBe(expected);
   });
 
-  // An old class site is often an archived offering under a title the catalogue
-  // has since retired, so a title and its link must come from the same record.
+  // Course numbers, titles, and links are aligned.
   it.each([
-    [
-      'CME 302',
-      'Numerical Linear Algebra',
-      'https://bulletin.stanford.edu/courses/1057521',
-    ],
-    [
-      'CME 306',
-      'Computational Methods of Applied Mathematics',
-      'https://bulletin.stanford.edu/courses/1174062',
-    ],
-    [
-      'CME 307',
-      'Optimization',
-      'https://bulletin.stanford.edu/courses/1045842',
-    ],
-    [
-      'CME 308',
-      'Stochastic Methods in Engineering',
-      'https://web.stanford.edu/class/cme308/',
-    ],
-    [
-      'CS 131',
-      'Computer Vision: Foundations and Applications',
-      'https://bulletin.stanford.edu/courses/2149051',
-    ],
-    [
-      'CS 265',
-      'Randomized Algorithms and Probabilistic Analysis',
-      'https://web.stanford.edu/class/cs265/',
-    ],
-  ])('keeps %s aligned with its Stanford record', (number, title, link) => {
+    ['AIDS 201', 'Linear Algebra', 'https://dypvp.edu.in'],
+    ['AIDS 203', 'Data Structures & Algorithms', 'https://dypvp.edu.in'],
+    ['AIDS 206', 'Fundamentals of AI & ML', 'https://dypvp.edu.in'],
+  ])('keeps %s aligned with its course record', (number, title, link) => {
     expect(courses.find((course) => course.number === number)).toMatchObject({
       title,
       link,

@@ -7,59 +7,54 @@ export interface Skill {
 const skills: Skill[] = [
   // Languages
   {
+    title: 'C',
+    competency: 5,
+    category: ['Languages'],
+  },
+  {
     title: 'Python',
-    competency: 5,
+    competency: 4,
     category: ['Languages'],
   },
   {
-    title: 'TypeScript',
-    competency: 5,
+    title: 'JavaScript',
+    competency: 4,
     category: ['Languages'],
   },
   {
-    title: 'SQL',
-    competency: 4,
-    category: ['Databases'],
-  },
-  // AI & LLM
-  {
-    title: 'AI Agents',
-    competency: 5,
-    category: ['ML Engineering'],
+    title: 'C++',
+    competency: 3,
+    category: ['Languages'],
   },
   {
-    title: 'LLM Evaluation',
-    competency: 5,
-    category: ['ML Engineering'],
+    title: 'Java',
+    competency: 3,
+    category: ['Languages'],
   },
   {
-    title: 'AI Red-teaming',
-    competency: 5,
-    category: ['ML Engineering'],
+    title: 'Rust',
+    competency: 3,
+    category: ['Languages'],
   },
-  {
-    title: 'LLM APIs',
-    competency: 5,
-    category: ['ML Engineering'],
-  },
-  {
-    title: 'RAG',
-    competency: 4,
-    category: ['ML Engineering'],
-  },
-  {
-    title: 'Prompt Engineering',
-    competency: 4,
-    category: ['ML Engineering'],
-  },
-  {
-    title: 'Vector Databases',
-    competency: 4,
-    category: ['Databases'],
-  },
+  // ML & Scientific Computing
   {
     title: 'PyTorch',
     competency: 4,
+    category: ['ML Engineering'],
+  },
+  {
+    title: 'TensorFlow',
+    competency: 4,
+    category: ['ML Engineering'],
+  },
+  {
+    title: 'Scikit-learn',
+    competency: 4,
+    category: ['ML Engineering'],
+  },
+  {
+    title: 'NumPy',
+    competency: 5,
     category: ['ML Engineering'],
   },
   {
@@ -67,53 +62,89 @@ const skills: Skill[] = [
     competency: 5,
     category: ['ML Engineering'],
   },
-  // Web Development
   {
-    title: 'Node.js',
-    competency: 5,
-    category: ['Web Development'],
+    title: 'SciPy',
+    competency: 4,
+    category: ['ML Engineering'],
   },
+  {
+    title: 'OpenCV',
+    competency: 4,
+    category: ['ML Engineering'],
+  },
+  {
+    title: 'Keras',
+    competency: 4,
+    category: ['ML Engineering'],
+  },
+  // Data Analysis & Visualization
+  {
+    title: 'Matplotlib',
+    competency: 4,
+    category: ['Data Analysis'],
+  },
+  {
+    title: 'Seaborn',
+    competency: 4,
+    category: ['Data Analysis'],
+  },
+  {
+    title: 'Jupyter Notebook',
+    competency: 4,
+    category: ['Data Analysis'],
+  },
+  // Web & Backend Development
   {
     title: 'FastAPI',
     competency: 4,
     category: ['Web Development'],
   },
   {
-    title: 'Next.js',
+    title: 'React',
+    competency: 4,
+    category: ['Web Development'],
+  },
+  {
+    title: 'Node.js',
+    competency: 4,
+    category: ['Web Development'],
+  },
+  {
+    title: 'Express',
+    competency: 4,
+    category: ['Web Development'],
+  },
+  {
+    title: 'Django',
     competency: 3,
     category: ['Web Development'],
   },
   // Databases
   {
-    title: 'PostgreSQL',
+    title: 'MongoDB',
     competency: 4,
     category: ['Databases'],
   },
   {
-    title: 'Redis',
+    title: 'MySQL',
     competency: 3,
     category: ['Databases'],
   },
-  // Infrastructure
   {
-    title: 'AWS',
-    competency: 4,
-    category: ['Infrastructure'],
+    title: 'SQL',
+    competency: 3,
+    category: ['Databases'],
+  },
+  // Infrastructure & Tools
+  {
+    title: 'Git',
+    competency: 5,
+    category: ['Tools'],
   },
   {
     title: 'Docker',
     competency: 4,
-    category: ['Infrastructure'],
-  },
-  {
-    title: 'Kubernetes',
-    competency: 3,
-    category: ['Infrastructure'],
-  },
-  {
-    title: 'Observability',
-    competency: 4,
-    category: ['Infrastructure'],
+    category: ['Tools'],
   },
 ];
 

@@ -94,19 +94,15 @@ describe('the about page log', () => {
           return [year, age].filter(Boolean).join(' / ');
         })
         .join(', '),
-    ).toBe(
-      '1993 / Age 3, 1995, 1996, Age 7, Age 8, Age 10, Age 11, Age 12, Age 13, Age 14, Age 14–17, Age 16, Age 18, Age 19, Age 20',
-    );
+    ).toBe('2018, 2024, 2025, 2026, 2026, 2026, 2026, 2026');
   });
 
   it('leaves undated travel entries empty and derives no travel ages', () => {
     const markers = sectionEntries('Travel / geography').map(extractLogMarker);
     const dated = markers.filter((marker) => marker !== null);
 
-    expect(markers.length - dated.length).toBe(3);
-    expect(dated.map((marker) => marker.year).join(' ')).toBe(
-      '2016 2017 2018 2019 2020 2021 2022 2023',
-    );
-    expect(dated.every((marker) => marker.age === undefined)).toBe(true);
+    expect(markers.length - dated.length).toBe(2);
+    expect(dated.map((marker) => marker?.year).join(' ')).toBe('');
+    expect(dated.every((marker) => marker?.age === undefined)).toBe(true);
   });
 });

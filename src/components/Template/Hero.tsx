@@ -10,26 +10,22 @@ export default function Hero() {
     <section className="hero">
       <div className="hero-grid">
         <div className="hero-primary">
-          <p className="hero-kicker">Software &amp; security</p>
+          <p className="hero-kicker">
+            Artificial Intelligence &amp; Data Science
+          </p>
           <h1 className="hero-title">
             <span className="hero-name">{smartQuotes(profile.name)}</span>
           </h1>
           <p className="hero-tagline">
-            I’m a {profile.role} at{' '}
-            <a href="https://openai.com" className="hero-highlight">
-              {profile.employer}
-            </a>
-            , working on{' '}
-            <a href="https://promptfoo.dev" className="hero-highlight">
-              Promptfoo
-            </a>{' '}
-            and other cyber products.
+            I’m an {profile.role} at{' '}
+            <span className="hero-highlight">{profile.employer}</span>, working
+            on {profile.focus}.
           </p>
 
           <p className="hero-summary">
-            I help secure AI systems and use AI to find software
-            vulnerabilities. I co-founded Promptfoo before it joined OpenAI in
-            2026.
+            I build machine learning systems, explore agentic AI workflows, and
+            investigate neural computation from scratch. B.Tech student in AI
+            &amp; Data Science at Dr. D. Y. Patil Institute of Technology, Pune.
           </p>
 
           <div className="hero-cta">

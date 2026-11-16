@@ -2,6 +2,7 @@
 title: Why I Mostly Switched From Claude Code to the Codex Desktop App
 date: '2026-07-30'
 description: 'How the Codex desktop app became my default coding workspace, and where Claude Code still wins.'
+draft: true
 ---
 
 I now start most coding sessions in the Codex desktop app.

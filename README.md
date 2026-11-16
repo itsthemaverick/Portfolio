@@ -1,20 +1,15 @@
-# Michael D'Angelo: Personal Site
+# Yashraj Bhogade: Personal Site
 
-[![CI status](https://github.com/mldangelo/personal-site/actions/workflows/node.js.yml/badge.svg?branch=main)](https://github.com/mldangelo/personal-site/actions/workflows/node.js.yml)
+[![CI status](https://github.com/itsthemaverick/personal-site/actions/workflows/node.js.yml/badge.svg?branch=main)](https://github.com/itsthemaverick/personal-site/actions/workflows/node.js.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](./LICENSE)
-[![GitHub Stars](https://img.shields.io/github/stars/mldangelo/personal-site?style=social)](https://github.com/mldangelo/personal-site)
-[![GitHub Forks](https://img.shields.io/github/forks/mldangelo/personal-site?style=social)](https://github.com/mldangelo/personal-site/network/members)
 
-The source for [mldangelo.com](https://mldangelo.com), a portfolio, résumé,
+The source for [itsthemaverick.github.io](https://itsthemaverick.github.io), a portfolio, résumé,
 project archive, and writing site built with
 [Next.js](https://nextjs.org/), [React](https://react.dev/),
 [TypeScript](https://www.typescriptlang.org/), and
 [Tailwind CSS](https://tailwindcss.com/).
 
-The architecture is reusable and MIT licensed. The content and visual design
-are personal, so a fork needs a full rebrand.
-
-**[Visit the live site →](https://mldangelo.com)**
+**[Visit the live site →](https://itsthemaverick.github.io)**
 
 ## What is here
 

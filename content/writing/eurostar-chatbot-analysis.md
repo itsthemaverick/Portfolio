@@ -2,6 +2,7 @@
 title: Notes on the Eurostar chatbot "vulnerability" report
 date: '2026-01-05'
 description: Looking at what makes something a vulnerability versus a hardening opportunity in LLM applications.
+draft: true
 ---
 
 _I work on [Promptfoo](https://github.com/promptfoo/promptfoo), an open-source LLM red teaming tool._

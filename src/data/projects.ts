@@ -3,10 +3,9 @@
  *
  * Two groups, both kept deliberately:
  *
- * - `shipped` — selected production work Michael built, led, or contributed
+ * - `shipped` — selected production work Yashraj built, led, or contributed
  *   to, and can be pointed at.
- * - `archive` — student-era experiments. A register that deletes its own
- *   history is a brochure, so these stay, stepped down rather than removed.
+ * - `archive` — student-era experiments and hackathons.
  *
  * Shipped entries cite either a role in `src/data/resume/work.ts` or the
  * source repository for a personal project. Résumé-backed dates and numeric
@@ -36,7 +35,7 @@ export interface Project {
    */
   image?: string;
   /**
-   * ISO date Michael's work on the project started, or a one-off shipped.
+   * ISO date Yashraj's work on the project started, or a one-off shipped.
    * This is project activity, not necessarily a public launch date.
    */
   date: string;
@@ -62,122 +61,105 @@ export interface Project {
  */
 const data: Project[] = [
   {
-    title: 'SF Run Club Index',
-    subtitle: 'Personal project',
-    link: 'https://mldangelo.github.io/run/',
-    sourceRepository: 'https://github.com/mldangelo/run',
-    // Repository created on November 8, 2026; dates render at month precision.
-    date: '2026-11-08',
+    title: 'Neural Network from Scratch in C',
+    subtitle: 'Machine learning in C',
+    link: 'https://github.com/itsthemaverick/neural-network-in-c',
+    sourceRepository: 'https://github.com/itsthemaverick/neural-network-in-c',
+    date: '2026-10-01',
     ongoing: true,
-    desc: 'A searchable directory of running clubs, group runs, and races in San Francisco and nearby Bay Area communities. Filter by day, neighborhood, distance, and experience, with meeting details and links to organizer sources.',
+    desc: 'Implemented a neural network to explore the mechanics of neural computation: architecture, forward propagation, and learning without high-level ML frameworks.',
+    tech: ['C'],
     status: 'shipped',
   },
   {
-    title: 'Codex Security',
-    subtitle: 'OpenAI',
-    link: 'https://openai.com/business/solutions/cybersecurity/',
-    sourceWork: 'OpenAI',
-    // Michael's involvement began with his OpenAI role. The public research
-    // preview launched three days earlier; month-precision UI shows Mar 2026.
-    date: '2026-03-09',
+    title: 'Project JHEP',
+    subtitle: 'SprougHub Foundation',
+    link: 'https://github.com/itsthemaverick',
+    sourceWork: 'SprougHub Foundation',
+    date: '2026-09-01',
     ongoing: true,
-    desc: 'Securing AI systems and applying AI to software security at OpenAI — using models to find and fix vulnerabilities in code.',
+    desc: 'AI-powered Learning Management System. Served as Project Lead, coordinating a 10-member team across frontend, backend, and AI/ML development.',
+    tech: ['React', 'Node.js', 'FastAPI', 'AI/ML'],
     status: 'shipped',
   },
   {
-    title: 'Promptfoo',
-    subtitle: 'Co-founder & CTO through acquisition · Continued at OpenAI',
-    link: 'https://promptfoo.dev',
-    sourceWork: 'Promptfoo',
-    date: '2024-07-01',
-    ongoing: true,
-    desc: 'Started as a developer-first eval tool and grew into a platform for AI security, red-teaming, and compliance: evaluation framework, vulnerability scanning, static analysis, and automated red-teaming. Reached more than 350,000 developers, 130,000 monthly active users, and teams at more than 25% of the Fortune 500 before joining OpenAI in 2026.',
+    title: 'Deepreach',
+    subtitle: 'DevKraft',
+    link: 'https://devkraft.in',
+    sourceWork: 'DevKraft',
+    date: '2026-09-01',
+    endDate: '2026-11-01',
+    desc: 'Web-based company discovery and research workflow for identifying potential event sponsors using agentic AI workflows, prompt design, and guardrails.',
+    tech: ['Python', 'Agentic AI', 'Prompt Design'],
     status: 'shipped',
   },
   {
-    title: 'Smile ID',
-    subtitle: 'VP Engineering & Head of AI',
-    link: 'https://smile.id',
-    sourceWork: 'Smile ID',
-    date: '2022-01-01',
-    endDate: '2024-07-01',
-    desc: 'ML-powered identity verification APIs used by banks, fintechs, and telcos across Africa. Re-architected inference to scale from 1,000 to more than 1M users per day, cutting job time from over 30 seconds to 7 seconds, and shipped a fraud detection product built on 1-N facial recognition.',
-    tech: ['AWS Lambda', 'Computer vision', 'Embeddings', 'Vector search'],
+    title: 'Credit Card Fraud Detection',
+    subtitle: 'Random Forest vs. Isolation Forest',
+    link: 'https://github.com/itsthemaverick/fraud-detection',
+    sourceRepository: 'https://github.com/itsthemaverick/fraud-detection',
+    date: '2026-08-01',
+    desc: 'Explored supervised and unsupervised anomaly and fraud detection; compared model behaviour and evaluation metrics across Random Forest and Isolation Forest strategies.',
+    tech: ['Python', 'Scikit-learn', 'Random Forest', 'Isolation Forest'],
     status: 'shipped',
   },
   {
-    title: 'Arthena',
-    subtitle: 'Co-founder & CTO',
-    link: 'https://www.ycombinator.com/companies/arthena',
-    sourceWork: 'Arthena',
-    date: '2014-01-01',
-    endDate: '2022-01-01',
-    desc: 'Quantitative art-investment platform backed by Anthemis, Foundation Capital, and Y Combinator. Built valuation models over irregularly sampled time series, plus the data pipelines and research tools behind them. Masterworks later acquired the company in 2023.',
-    tech: [
-      'Graph embeddings',
-      'Probabilistic forecasting',
-      'Online learning',
-      'Microservices',
-    ],
+    title: 'Malware Detection',
+    subtitle: 'Logistic Regression · TF-IDF',
+    link: 'https://github.com/itsthemaverick/malware-detection',
+    sourceRepository: 'https://github.com/itsthemaverick/malware-detection',
+    date: '2026-07-01',
+    desc: 'Developed a text-based classification approach for malware-related detection; applied TF-IDF and Logistic Regression to investigate performance.',
+    tech: ['Python', 'Scikit-learn', 'TF-IDF', 'Logistic Regression'],
     status: 'shipped',
   },
   {
-    title: 'Matroid',
-    subtitle: 'Co-founder',
-    link: 'https://matroid.com',
-    sourceWork: 'Matroid',
-    date: '2015-09-01',
-    endDate: '2016-06-01',
-    desc: 'Computer vision platform for creating and deploying detectors. Architected and built the initial platform for identifying objects, events, and patterns in video, and carried it through the seed round.',
-    tech: ['Computer vision'],
+    title: 'Text Classification',
+    subtitle: 'Naive Bayes · Bag-of-Words vs. TF-IDF',
+    link: 'https://github.com/itsthemaverick/text-classification',
+    sourceRepository: 'https://github.com/itsthemaverick/text-classification',
+    date: '2026-06-01',
+    desc: 'Compared text representation methods and investigated how feature extraction influences text classification.',
+    tech: ['Python', 'Naive Bayes', 'NLP'],
     status: 'shipped',
   },
   {
-    title: 'Nearest Dollar',
-    subtitle: 'BVP Hackathon',
-    image: '/images/projects/nearestdollar.jpg',
-    date: '2015-11-20',
-    desc: 'Connected to bank accounts to round up purchases and donate spare change to charity.',
-    tech: ['React', 'Node.js', 'Plaid API', 'MongoDB'],
+    title: 'Signal-to-Strategy',
+    subtitle: 'User Behaviour Prediction',
+    link: 'https://github.com/itsthemaverick/signal-to-strategy',
+    sourceRepository: 'https://github.com/itsthemaverick/signal-to-strategy',
+    date: '2026-05-01',
+    desc: 'Developed an ML project identifying patterns in user behaviour and using predictions to inform strategy.',
+    tech: ['Python', 'Machine Learning', 'Data Analysis'],
+    status: 'shipped',
+  },
+  {
+    title: 'ZION Event Website',
+    subtitle: 'DYPIT College Tech Fest',
+    link: 'https://ziondit.online',
+    date: '2026-01-01',
+    endDate: '2026-05-31',
+    desc: 'Contributed to the ZION event website and organized a technology-based treasure hunt.',
+    tech: ['Web Development', 'JavaScript'],
     status: 'archive',
   },
   {
-    title: 'Harvest',
-    subtitle: '3rd place at TechCrunch Disrupt SF',
-    link: 'https://devpost.com/software/harvest',
-    image: '/images/projects/harvest.jpg',
-    date: '2015-09-20',
-    desc: 'Low-cost crop monitoring to catch irrigation leaks and nutrient deficiencies.',
-    tech: ['Python', 'Arduino', 'Computer vision', 'AWS'],
+    title: '8Minutes',
+    subtitle: 'EDSI Idea Validation Pitch — 1st Place',
+    link: 'https://github.com/itsthemaverick',
+    date: '2026-03-15',
+    desc: 'AI-powered mental wellness platform with an AI companion and mood-tracking concepts. Team Lead & Head Developer.',
+    tech: ['AI Companion', 'Mental Wellness', 'Mobile'],
     status: 'archive',
   },
   {
-    title: 'Space Potato',
-    subtitle: 'Kickstarter-funded weather balloon',
-    image: '/images/projects/spacepotato.jpg',
-    date: '2015-06-28',
-    desc: 'Potato-powered weather balloon with cameras. Photos published in a coffee table book.',
-    tech: ['Hardware', 'GPS', 'Photography'],
-    status: 'archive',
-  },
-  {
-    title: 'Cat Detector',
-    subtitle: 'CNN for cat breed classification',
-    image: '/images/projects/catdetector.jpg',
-    date: '2015-05-15',
-    desc: 'Classified 60,000+ cats across 80 breeds before server costs shut it down.',
-    // TensorFlow was not open-sourced until November 2015, six months after
-    // this project date. No primary source establishes a later port.
-    tech: ['Python', 'CNN', 'AWS'],
-    status: 'archive',
-  },
-  {
-    title: 'UB Nanosatellite Program',
-    subtitle: 'AFRL University Nanosatellite Program',
-    link: 'https://ubnl.space/glados/',
-    date: '2011-06-01',
-    endDate: '2012-05-01',
-    desc: 'Co-authored the grant to design and build a multi-spectral imaging satellite, designed its attitude determination and control, and led a 60-person student team through the development lifecycle.',
+    title: 'Sarthasangati Foundation Website',
+    subtitle: 'Foundation Website',
+    link: 'https://dypvp.edu.in',
+    date: '2025-06-01',
+    endDate: '2025-08-31',
+    desc: 'Developed a website for the foundation and assisted with technical requirements.',
+    tech: ['HTML/CSS', 'JavaScript'],
     status: 'archive',
   },
 ];

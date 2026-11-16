@@ -2,6 +2,7 @@
 title: Notes on the Claude Code 2.1.0 outage
 date: '2026-01-08'
 description: 'A changelog formatting change took down Claude Code. Lessons about parsing human docs as machine data.'
+draft: true
 ---
 
 On January 7, 2026, Claude Code 2.1.0 shipped. Users ran `claude` and got `Invalid Version: 2.1.0 (2026-01-07)`.

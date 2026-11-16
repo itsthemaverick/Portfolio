@@ -133,8 +133,11 @@ describe('writing post structured data', () => {
       },
     ],
     [
-      'claude-code-outage',
-      { url: '/og/writing/claude-code-outage.png', ...SHARE_IMAGE_DIMENSIONS },
+      'building-a-neural-network-from-scratch-in-c',
+      {
+        url: '/og/writing/building-a-neural-network-from-scratch-in-c.png',
+        ...SHARE_IMAGE_DIMENSIONS,
+      },
     ],
   ])('publishes the right image for %s', async (slug, { url, ...size }) => {
     expect((await blogPostingFor(slug)).image).toMatchObject({

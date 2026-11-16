@@ -3,8 +3,8 @@
 ## Reporting a vulnerability
 
 Please report privately, through GitHub's
-[private vulnerability reporting](https://github.com/mldangelo/personal-site/security/advisories/new)
-or by email to [hi@mldangelo.com](mailto:hi@mldangelo.com), rather than in a
+[private vulnerability reporting](https://github.com/itsthemaverick/personal-site/security/advisories/new)
+or by email to [yashrajbhogadepatil@gmail.com](mailto:yashrajbhogadepatil@gmail.com), rather than in a
 public issue. Include the affected URL or file, steps to reproduce, and the
 impact you expect. A small proof of concept helps when it can be shared safely.
 Please allow time to investigate and fix the issue before disclosing it.
@@ -14,7 +14,7 @@ there is no guaranteed response time and no bug bounty.
 
 ## Scope
 
-This policy covers [mldangelo.com](https://mldangelo.com), this repository, and
+This policy covers [itsthemaverick.github.io](https://itsthemaverick.github.io), this repository, and
 the GitHub Actions workflows that build and deploy the site. Only the live site
 and the `main` branch are supported.
 

@@ -1,11 +1,11 @@
 {
-  "name": "Michael D'Angelo",
-  "role": "Member of the Technical Staff",
-  "employer": "OpenAI",
-  "focus": "Promptfoo and other cyber products",
-  "birthDate": "1990-02-05T09:24:00-05:00",
-  "computingSince": 1993,
-  "countriesVisited": 55,
-  "currentCity": "San Francisco",
-  "email": "hi@mldangelo.com"
+  "name": "Yashraj Bhogade",
+  "role": "AI & Machine Learning Engineer",
+  "employer": "SprougHub Foundation",
+  "focus": "Machine learning, agentic workflows, and neural architectures",
+  "birthDate": "2007-07-05T00:00:00+05:30",
+  "computingSince": 2018,
+  "countriesVisited": 1,
+  "currentCity": "Pune",
+  "email": "yashrajbhogadepatil@gmail.com"
 }

@@ -5,9 +5,9 @@
 import profile from '@/data/profile.json';
 
 // Site configuration
-export const SITE_URL = 'https://mldangelo.com';
+export const SITE_URL = 'https://itsthemaverick.github.io';
 export const AUTHOR_NAME = profile.name;
-export const TWITTER_HANDLE = '@dangelosaurus';
+export const TWITTER_HANDLE = '@itsthemaverick';
 /**
  * The portrait. Used for JSON-LD `image`, where the value should be a picture
  * of the person, not a designed card.
@@ -34,7 +34,7 @@ export const SHARE_IMAGE_DIMENSIONS = {
 
 // Canonical one-line bio, shared across page metadata, OpenGraph, and JSON-LD.
 export const SITE_DESCRIPTION =
-  'Member of the Technical Staff at OpenAI, working on Promptfoo and other cyber products. Co-founded Promptfoo before it joined OpenAI in 2026.';
+  'AI & Machine Learning Engineer and B.Tech student in Artificial Intelligence & Data Science at Dr. D. Y. Patil Institute of Technology, Pimpri, Pune.';
 
 // Skill competency
 export const MAX_COMPETENCY = 5;

@@ -3,8 +3,8 @@
     "accent": "#36559a",
     "onAccent": "#ffffff",
     "backgroundLight": "#f6f3ed",
-    "monogram": "MD",
-    "name": "Michael D'Angelo",
+    "monogram": "YB",
+    "name": "Yashraj Bhogade",
     "font": {
       "name": "Display",
       "family": "Inter",
@@ -31,14 +31,14 @@
       }
     ]
   },
-  "generatorDigest": "3cfd3749a43cf1949ddabdde59b9c4c1d92e003097f70a6578a62a758948f4d0",
+  "generatorDigest": "4aa8716dc06c9fc99d92514c4cb55cd298c80bb792400770c5b5748e601430da",
   "files": {
-    "app/favicon.ico": "1a36375860b595f54b960ae03580627b62b72e20f44f0fb82066686e10ec41e1",
-    "app/icon.png": "43291a11cdaa0d3333e6ec55216c112f7a0e5cb3c34c1b05869e00fc98057b5e",
-    "app/apple-icon.png": "199c982a9393dbb7103edb219d0c77cb043e8196f04a1c61c91a94b0022f098b",
-    "public/images/icons/icon-192.png": "f36da26102fefc11421fcc5e5f7c446b275ceb02cfce8d80d172e3e956b5561c",
-    "public/images/icons/icon-512.png": "70de66a2f3cd873a32573d0a5fa47770b33e96521deba51d50fa8fc44d56b10b",
-    "public/images/icons/icon-maskable-512.png": "dcfffad9804202211a36cc6a70331263bdc8a7f494fd2e9f0dcc83d81a65f84f",
-    "app/manifest.json": "3a1c7ffdf7fc6e03045a78d74b80b67708488ff035fb42eee788a7a38f23fd07"
+    "app/favicon.ico": "e3aa61d1add7b52cb3ffc051d704d55dbef3226f93d738bd59a42bd1de604003",
+    "app/icon.png": "2293113896402f93283a2582116c24bff93eb3b91f7be693e7362f78e9379256",
+    "app/apple-icon.png": "23d16867c464be7d6c66391bbeb7a7da4cc344df036cc8ea1d0b6af4a3680183",
+    "public/images/icons/icon-192.png": "262a0e02f4a30fb0ec99a00c1bddd3cc398322acb2414775434aeb85426340e5",
+    "public/images/icons/icon-512.png": "62bf29944b84fd5b04221f21f2b6328a52f50240638d00fea7dd41217b6092df",
+    "public/images/icons/icon-maskable-512.png": "40a255d1ffaee5a600f97ab4e2751ee8736b42d9b2f724bc5d4c93a9b282ebc3",
+    "app/manifest.json": "3ba0b892c8f629672569ef79c1e2183af3483b5e19d9a87d573b39b855d979d5"
   }
 }

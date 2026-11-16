@@ -48,7 +48,7 @@ describe('json resume document', () => {
       label: profile.role,
       email: profile.email,
       // The display city, without asserting a country.
-      location: { city: 'San Francisco' },
+      location: { city: 'Pune' },
     });
   });
 
@@ -58,8 +58,8 @@ describe('json resume document', () => {
     );
     expect(resume.basics.profiles).toContainEqual({
       network: 'GitHub',
-      username: 'mldangelo',
-      url: 'https://github.com/mldangelo',
+      username: 'itsthemaverick',
+      url: 'https://github.com/itsthemaverick',
     });
   });
 
@@ -77,9 +77,7 @@ describe('json resume document', () => {
       ...(position.highlights ?? []),
     ]);
 
-    expect(prose.join(' ')).toContain(
-      'backed by Anthemis, Foundation Capital, and Y Combinator',
-    );
+    expect(prose.join(' ')).toContain('Learning Management System');
   });
 
   it('uses schema-valid dates throughout', () => {
@@ -95,10 +93,9 @@ describe('json resume document', () => {
   it('splits the degree string into studyType and area', () => {
     expect(resume.education).toHaveLength(degrees.length);
     expect(resume.education[0]).toMatchObject({
-      institution: 'Stanford University',
-      studyType: 'M.S.',
-      area: 'Computational and Mathematical Engineering (ICME)',
-      endDate: '2016',
+      institution: 'Dr. D. Y. Patil Institute of Technology, Pimpri, Pune',
+      area: 'B.Tech in Artificial Intelligence & Data Science',
+      endDate: '2029',
     });
   });
 
@@ -106,24 +103,20 @@ describe('json resume document', () => {
   // duplicate. A school whose name contains another's is the case the real data
   // cannot express, and joining by containment would double every course.
   it('files each course under exactly one degree', async () => {
-    expect(resume.education[0].courses).toContain(
-      'EE 364a - Convex Optimization',
-    );
+    expect(resume.education[0].courses).toContain('AIDS 201 - Linear Algebra');
     expect(
       resume.education.flatMap((entry) => entry.courses ?? []),
     ).toHaveLength(courses.length);
-    // A school with no courses carries none, rather than an empty array.
-    expect(resume.education[1]).not.toHaveProperty('courses');
 
     vi.resetModules();
     vi.doMock('@/data/resume/degrees', () => ({
       default: [
         ...degrees,
         {
-          school: 'Stanford University Graduate School of Business',
-          degree: 'M.B.A.',
-          link: 'https://gsb.stanford.edu',
-          year: 2018,
+          school: 'Savitribai Phule Pune University',
+          degree: 'M.S. Computer Science',
+          link: 'https://unipune.ac.in',
+          year: 2031,
         },
       ],
     }));

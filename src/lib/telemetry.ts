@@ -50,4 +50,4 @@ export function utcDate(at: number): string {
  * describe it and its rows link into it, so a fork changes
  * this one constant.
  */
-export const SOURCE_REPOSITORY = 'mldangelo/personal-site';
+export const SOURCE_REPOSITORY = 'itsthemaverick/personal-site';
