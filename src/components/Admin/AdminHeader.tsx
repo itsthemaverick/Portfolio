@@ -1,8 +1,5 @@
 'use client';
 
-import Link from 'next/link';
-import React from 'react';
-
 import { useAdmin } from './AdminContext';
 
 const SECTION_TITLES: Record<string, { title: string; route: string }> = {

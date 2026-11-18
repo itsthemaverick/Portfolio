@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+
 /**
  * Admin Companion Server for Next.js Portfolio Site
  *
@@ -15,12 +16,12 @@
  * - Git status and committing
  */
 
-import { createHmac, randomBytes } from 'node:crypto';
 import { exec } from 'node:child_process';
+import { createHmac, randomBytes } from 'node:crypto';
 import { existsSync } from 'node:fs';
-import { readdir, readFile, unlink, writeFile, mkdir } from 'node:fs/promises';
+import { mkdir, readdir, readFile, unlink, writeFile } from 'node:fs/promises';
 import http from 'node:http';
-import { extname, join, resolve, basename } from 'node:path';
+import { basename, join, resolve } from 'node:path';
 import vm from 'node:vm';
 import { parseFrontmatter } from '../src/lib/frontmatter.mjs';
 

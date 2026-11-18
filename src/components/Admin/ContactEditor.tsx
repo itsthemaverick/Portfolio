@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 import { saveContact } from '@/lib/adminApi';
 import type { ContactId, ContactItem } from '@/types/admin';

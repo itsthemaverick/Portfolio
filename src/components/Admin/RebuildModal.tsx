@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 import { triggerRebuild } from '@/lib/adminApi';
 import { useAdmin } from './AdminContext';

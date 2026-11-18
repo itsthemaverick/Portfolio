@@ -1,5 +1,4 @@
 import type {
-  ConnectionMode,
   ContactItem,
   Course,
   Degree,

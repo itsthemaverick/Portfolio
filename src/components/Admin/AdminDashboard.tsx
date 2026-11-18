@@ -1,7 +1,5 @@
 'use client';
 
-import React from 'react';
-
 import AboutEditor from './AboutEditor';
 import { useAdmin } from './AdminContext';
 import AdminHeader from './AdminHeader';
@@ -24,6 +22,7 @@ export default function AdminDashboard() {
   if (isLoading) {
     return (
       <div
+        id="main-content"
         style={{
           minHeight: '100vh',
           display: 'flex',
@@ -54,7 +53,7 @@ export default function AdminDashboard() {
       <AdminSidebar />
       <div className="admin-main">
         <AdminHeader />
-        <main className="admin-content">
+        <main className="admin-content" id="main-content">
           {activeSection === 'profile' && <ProfileEditor />}
           {activeSection === 'about' && <AboutEditor />}
           {activeSection === 'resume' && <ResumeEditor />}

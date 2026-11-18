@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 import { saveCourses, saveDegrees, saveSkills, saveWork } from '@/lib/adminApi';
 import type { Course, Degree, Position, Skill } from '@/types/admin';

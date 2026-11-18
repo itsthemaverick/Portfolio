@@ -48,7 +48,7 @@
   ],
   "profile": {
     "name": "Yashraj Bhogade",
-    "employer": "SprougHub Foundation",
+    "employer": "ICAAI",
     "focus": "Machine learning, agentic workflows, and neural architectures",
     "countriesVisited": 1,
     "computingSince": 2018,
@@ -62,8 +62,8 @@
     "accent": "#6f1d1a",
     "hairline": "rgba(35, 39, 46, 0.14)"
   },
-  "generatorDigest": "55772f6a1b9bbdd962ba3ddb8901f4f8dc5d893e7abdf37613ab8157c989d861",
-  "imageDigest": "928cd252048d80ccd3af97a9fd706e6104d09fe2446c9d6381e4e81231d7b9b5",
+  "generatorDigest": "3bed18a47dec1489baa95196c82123ed0669911d9e9782915b86a6be2a1fe38b",
+  "imageDigest": "445a9740b2bf620addb87dd79e99fd8b9ff7310b3bce36580d6710d36b477ac6",
   "posts": [
     {
       "slug": "building-a-neural-network-from-scratch-in-c",

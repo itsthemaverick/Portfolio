@@ -1,7 +1,7 @@
 'use client';
 
 import Markdown from 'markdown-to-jsx';
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 import { deletePost, saveExternalWriting, savePost } from '@/lib/adminApi';
 import type { PostItem, WritingEntry } from '@/types/admin';

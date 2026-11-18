@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 import { saveSpeaking } from '@/lib/adminApi';
 import type { Appearance, AppearanceFormat } from '@/types/admin';

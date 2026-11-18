@@ -20,7 +20,7 @@ const work: Position[] = [
     name: 'SprougHub Foundation',
     position:
       'Software Development Engineer & Machine Learning Engineer Intern',
-    url: 'https://github.com/itsthemaverick',
+    url: 'https://sproughub.info',
     startDate: '2026-09-01',
     summary:
       'Worked on web platforms and Project JHEP, an AI-powered Learning Management System; contributed to frontend, backend, and AI/ML development. Served as Project Lead, coordinating a 10-member team.',

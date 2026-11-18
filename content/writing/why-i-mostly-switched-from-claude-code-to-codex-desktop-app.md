@@ -33,7 +33,7 @@ Once I had more than one agent going, the overhead was orientation: reconstructi
 
 On a typical day I might have four agents going at once: one worktree fixing a flaky test, one thread reviewing an open PR, one trying a UI change against a local server, and one clicking through the app to see whether the change actually works. I move between them, reading diffs, approving commands, and killing the ones that have wandered off. Each is a single thread: a prompt, a work summary, the changed files, and a review action.
 
-![Codex thread showing a completed dark mode change and review action](/images/writing/codex-desktop-app-post/codex-dark-mode-review.webp)
+![Codex thread showing a completed dark mode change and review action](/draft-assets/codex-desktop-app-post/codex-dark-mode-review.webp)
 
 The screenshots here are official product images. My own workspaces are full of private code and internal context, and they're a lot messier than the product renders.
 
@@ -43,7 +43,7 @@ Most of what the app buys me is keeping parallel work straight. I can see what e
 
 I used to approximate this with terminal panes, naming conventions, and notes to myself, which meant holding the whole map in my head: which pane was which, which branch went with which task, what I'd already verified, what I still needed to say. The specific UI is beside the point. What I needed was for that state to live somewhere other than my memory.
 
-![Codex diff summary with a queued follow-up prompt](/images/writing/codex-desktop-app-post/codex-queued-follow-up.webp)
+![Codex diff summary with a queued follow-up prompt](/draft-assets/codex-desktop-app-post/codex-queued-follow-up.webp)
 
 ## Worktrees as a unit of work
 
@@ -65,7 +65,7 @@ Voice input caught me off guard, and not because it's faster. It lowers the fric
 
 Automations handle the other end — the work I'd otherwise forget. I use them for recurring checks I want delivered like an inbox: which PRs are stuck, whether this branch still passes, regressions in flows I always forget to test, docs that have drifted. They run in the current project or a separate worktree and drop findings into Triage, so the agent keeps working between my sessions. A lot of real engineering work is repetitive and easy to defer, and automations absorb it.
 
-![Codex automation confirmation for a weekly planning task](/images/writing/codex-desktop-app-post/codex-weekly-planning-automation.webp)
+![Codex automation confirmation for a weekly planning task](/draft-assets/codex-desktop-app-post/codex-weekly-planning-automation.webp)
 
 ## Browser and computer use
 

@@ -29,7 +29,7 @@ export default function AdminLogin({ standalone = false }: AdminLoginProps) {
   };
 
   return (
-    <div className="admin-login-wrapper">
+    <div className="admin-login-wrapper" id="main-content">
       <div className="admin-login-card">
         <div className="admin-login-header">
           <div className="admin-login-monogram">YB</div>
@@ -44,11 +44,14 @@ export default function AdminLogin({ standalone = false }: AdminLoginProps) {
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
+            flexWrap: 'wrap',
             gap: '0.5rem',
             marginBottom: '1.25rem',
             fontSize: '0.75rem',
             fontFamily: 'var(--font-mono)',
             color: serverOnline ? '#4ade80' : 'var(--color-signal)',
+            textAlign: 'center',
+            overflowWrap: 'anywhere',
           }}
         >
           <span
@@ -58,11 +61,14 @@ export default function AdminLogin({ standalone = false }: AdminLoginProps) {
               borderRadius: '50%',
               backgroundColor: serverOnline ? '#2e7d32' : 'var(--color-signal)',
               display: 'inline-block',
+              flexShrink: 0,
             }}
           />
-          {serverOnline
-            ? 'Local Companion Server: Online (Port 3001)'
-            : 'Companion Server: Checking / Offline (Run: npm run admin)'}
+          <span style={{ overflowWrap: 'anywhere', wordBreak: 'break-word' }}>
+            {serverOnline
+              ? 'Local Companion Server: Online (Port 3001)'
+              : 'Companion Server: Checking / Offline (Run: npm run admin)'}
+          </span>
         </div>
 
         {error && <div className="admin-login-error">{error}</div>}
@@ -114,11 +120,18 @@ export default function AdminLogin({ standalone = false }: AdminLoginProps) {
             textAlign: 'center',
             fontSize: '0.75rem',
             color: 'var(--color-fg-light)',
+            overflowWrap: 'anywhere',
           }}
         >
-          <p style={{ margin: 0 }}>
-            Configured via <code>ADMIN_PASSWORD</code> in{' '}
-            <code>.env.local</code>
+          <p style={{ margin: 0, overflowWrap: 'anywhere' }}>
+            Configured via{' '}
+            <code style={{ overflowWrap: 'anywhere', wordBreak: 'break-all' }}>
+              ADMIN_PASSWORD
+            </code>{' '}
+            in{' '}
+            <code style={{ overflowWrap: 'anywhere', wordBreak: 'break-all' }}>
+              .env.local
+            </code>
           </p>
         </div>
       </div>
