@@ -1,0 +1,106 @@
+Act as a principal full-stack developer and UI/UX designer. I need you to build a secure, production-ready Admin Dashboard with authentication for my existing Next.js personal portfolio site. 
+
+The dashboard must enable viewing, creating, editing, and deleting every single data point and content asset across the portfolio through an intuitive UI without ever manually editing source code or hardcoded files.
+
+---
+
+### 🎨 1. Design & Aesthetic Guidelines (Matching Site Tokens Exactly)
+
+The dashboard UI must look and feel like an authentic extension of this portfolio's design system:
+- Color Palette & Tokens:
+  - Dark Base: Deep charcoal background (`--color-bg-alt`: `#222329`), elevated card surfaces (`rgba(255, 255, 255, 0.04)` with hover states at `0.07`), and dark modal overlay (`rgba(0, 0, 0, 0.6)`).
+  - Text & Foreground: Crisp off-white bold text (`--color-fg-bold`: `#f4f0e9`), clean reading body (`--color-fg`: `#ece9e3`), and muted graphite labels (`--color-fg-light`: `#bebac0`).
+  - Accent & Highlights: The signature deep dark red (`--color-hero`: `#6f1d1a`), pastel rose dark-mode accents (`--color-accent`: `#eebcb9`), and high-contrast button fills (`#6f1d1a` with `#ffffff` text).
+  - Hairline Borders: Refined, understated borders (`--color-border`: `rgba(255, 255, 255, 0.12)` and control borders `#8b929c`).
+- Typography:
+  - Headings & Titles: Editorial serif using Newsreader (`var(--font-display)`).
+  - UI & Form Controls: Clean sans-serif using Inter (`var(--font-body)`).
+  - Metadata, Dates & Code: Tabular mono using JetBrains Mono (`var(--font-mono)`).
+- Layout:
+  - Responsive layout with a sticky/collapsible sidebar navigation on the left (displaying the monogram YB, section links, and theme indicator).
+  - Sticky header bar with quick action buttons: "Save & Commit", "Rebuild Assets", "Preview Live", and "Logout".
+
+---
+
+### 🔐 2. Authentication & Admin Security
+
+- Login Screen: A minimalist, distraction-free authentication page styled with the `#6f1d1a` hero card theme.
+- Security:
+  - Password or token-based authentication (configured via `.env.local` / environment secrets, e.g., `ADMIN_PASSWORD` or `ADMIN_SECRET_KEY`).
+  - Secure session storage (HTTP-only cookie / encrypted session JWT).
+  - Route protection guards that redirect unauthorized requests to `/admin/login`.
+
+---
+
+### 🗄️ 3. Data Structure & Section-by-Section CRUD Coverage
+
+The admin dashboard must interface directly with the site's specific data files and schemas:
+
+#### A. General Profile & Hero Settings (`src/data/profile.json`)
+- Fields:
+  - Full Name (`name`, e.g., "Yashraj Bhogade")
+  - Professional Role (`role`, e.g., "AI & Machine Learning Engineer")
+  - Employer / Affiliation (`employer`, e.g., "SprougHub Foundation")
+  - Focus Area (`focus`)
+  - Current City (`currentCity`, e.g., "Pune")
+  - Contact Email (`email`)
+  - Numeric Stats (`computingSince` year, `countriesVisited`, `birthDate` ISO string)
+  - Portrait image upload / file selector for `public/images/me.jpg` (with auto-sync to `SITE_IMAGE_DIMENSIONS`).
+
+#### B. About Page Editor (`src/data/about.ts`)
+- Interactive section editor for `aboutMarkdown` broken down into modular management panels:
+  - Bio & Intro: Multi-paragraph markdown editor with live preview.
+  - Some History: Chronological timeline manager (Year + Milestone text).
+  - Interests ("I Like"): List manager for technical and personal focus areas.
+  - Geography & Studies: Base location and educational institution details.
+  - Fun Facts & Achievements: Itemized list for certifications, hackathon highlights, and proficiencies.
+  - Vision ("I Dream Of"): Long-term vision and technical aspirations.
+  - Websites I Admire: Curated link manager (Name + URL).
+
+#### C. Résumé & Career Center (`src/data/resume/`)
+- Work Experience (`src/data/resume/work.ts`):
+  - CRUD interface for `Position`: Company `name`, `position` title, `url`, `startDate`, optional `endDate`, `commitment` ('part-time' or omitted for full-time), `summary`, and bulleted `highlights[]`.
+- Education (`src/data/resume/degrees.ts`):
+  - CRUD for `Degree`: `school`, `degree`, institution `link`, and completion `year`.
+- Skills Matrix (`src/data/resume/skills.ts`):
+  - CRUD for `Skill`: Skill `title`, `competency` rating (1 to 5), and multi-select `category[]` (e.g., Languages, ML Engineering, Tools, Web Dev).
+- Coursework (`src/data/resume/courses.ts`):
+  - CRUD for `Course`: `title`, course `number` (e.g., "AIDS 201"), university `link`, and matching `university` name.
+
+#### D. Projects Register (`src/data/projects.ts`)
+- Complete management for `Project` entries split into tabs (`shipped` vs. `archive`):
+  - Fields: `title`, `subtitle` (role/venue), `link`, `sourceWork` (linked resume position), `sourceRepository`, `date`, `endDate`, `ongoing` boolean toggle, `description` (markdown supported), and `tags[]` array.
+  - Thumbnail uploader/manager for project screenshots (`public/images/projects/`).
+
+#### E. Writing & Blog Engine (`content/writing/*.md` & `src/data/writing.ts`)
+- Published & Draft Posts (`content/writing/*.md`):
+  - Markdown editor with side-by-side rendered preview.
+  - Frontmatter manager: `title`, `date` (`YYYY-MM-DD`), `description`, `draft` (boolean toggle), and optional `canonicalUrl`.
+  - Slug generator and file manager (creating new `.md` files or updating existing ones).
+- External Publications & Patents (`src/data/writing.ts`):
+  - CRUD for `WritingEntry`: `title`, destination `url`, publication `date`, and `description` (e.g., patent applications or external research papers).
+
+#### F. Speaking & Appearances (`src/data/speaking.ts`)
+- CRUD for `Appearance`: `title`, `format` dropdown (`Tech session`, `Panel`, `Arsenal Lab`, `Pitch`), `date`, `place` (city), `desc`, and public `link`.
+
+#### G. Contact & Social Profiles (`src/data/contact.ts`)
+- Social profile links manager: `label`, profile `link`, and icon selector/SVG path.
+
+---
+
+### ⚙️ 4. Technical Architecture & Static Export Compatibility
+
+Because this site uses Next.js static export (`output: 'export'` for GitHub Pages):
+1. Implementation Pattern: 
+   - Implement the admin dashboard either via:
+     - Option A (Recommended Local Companion): Dedicated admin API endpoints running locally (`/api/admin/...`) that directly read and write the `.json`, `.ts`, and `.md` files via Node `fs/promises`.
+     - Option B (Git-Backed / GitHub Octokit CMS): Directly commits data updates to the GitHub repository using the GitHub API, enabling remote editing while triggering GitHub Pages CI/CD.
+2. Automated Asset Rebuilding:
+   - Include quick triggers from the dashboard to run:
+     - `npm run icons` (regenerates app icons from theme tokens)
+     - `npm run og` (re-renders share cards with fresh post titles/colors)
+     - `npm run build` (validates the static export)
+3. Validation & Feedback:
+   - Inline schema validation (preventing missing required fields or invalid dates).
+   - Toast notifications for success, auto-save drafts, and error states.
+   - Raw JSON/Markdown viewer modal for inspection before committing changes.

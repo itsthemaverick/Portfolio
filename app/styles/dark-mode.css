@@ -4,7 +4,7 @@
    tailwind.css for how both reach these rules.
    ======================================== */
 
-/* Neutral charcoal surrounds the same deep-blue poster after dark. */
+/* Neutral charcoal surrounds the same deep-red poster after dark. */
 :root {
   @variant dark {
     /* Core colors */
@@ -17,16 +17,16 @@
     --color-overlay-darker: rgba(0, 0, 0, 0.6);
 
     /* Links and filled controls keep separate, contrast-tested color pairs. */
-    --color-accent: #b8c9ee;
-    --color-accent-hover: #d0dcf6;
+    --color-accent: #eebcb9;
+    --color-accent-hover: #f7d8d6;
 
-    --color-hero: #304b83;
+    --color-hero: #6f1d1a;
     --color-on-hero: #f3eee5;
     --color-on-hero-hover: #e2dccf;
 
-    --color-accent-fill: #b8c9ee;
-    --color-accent-fill-hover: #d0dcf6;
-    --color-on-accent: #1b2a52;
+    --color-accent-fill: #eebcb9;
+    --color-accent-fill-hover: #f7d8d6;
+    --color-on-accent: #3b0e0d;
     --color-accent-underline: color-mix(in srgb, var(--color-accent) 50%, transparent);
 
     /* Amber remains reserved for live or in-progress values. */

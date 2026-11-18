@@ -14,6 +14,10 @@ import ThemeToggle from './ThemeToggle';
 export default function Navigation() {
   const pathname = usePathname();
 
+  if (pathname.startsWith('/admin')) {
+    return null;
+  }
+
   return (
     <header className="site-header">
       <div className="site-brand">

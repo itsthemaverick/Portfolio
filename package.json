@@ -12,6 +12,7 @@
   },
   "scripts": {
     "dev": "next dev --turbopack",
+    "admin": "node scripts/admin-server.mjs",
     "build": "next build --webpack",
     "lint": "biome check .",
     "type-check": "tsc --noEmit",

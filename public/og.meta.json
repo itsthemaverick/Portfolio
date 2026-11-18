@@ -59,11 +59,11 @@
     "paper": "#f6f3ed",
     "body": "#292a2e",
     "graphite": "#646269",
-    "accent": "#36559a",
+    "accent": "#6f1d1a",
     "hairline": "rgba(35, 39, 46, 0.14)"
   },
   "generatorDigest": "55772f6a1b9bbdd962ba3ddb8901f4f8dc5d893e7abdf37613ab8157c989d861",
-  "imageDigest": "0d982d5155cd0d9bf7b745d210f21a4450f1a4e90bea1f47bae1233f77a7700f",
+  "imageDigest": "928cd252048d80ccd3af97a9fd706e6104d09fe2446c9d6381e4e81231d7b9b5",
   "posts": [
     {
       "slug": "building-a-neural-network-from-scratch-in-c",
@@ -86,7 +86,7 @@
           "value": "1 min"
         }
       ],
-      "imageDigest": "7456251110ded1f5774290a80880d9ea2321f06d352c5c7da8cfffddccb742a4"
+      "imageDigest": "eaa499290a5e39c41ca5a4cba17b591f9f00c9968c9f48cfba9ac29556f3bceb"
     },
     {
       "slug": "shipping-with-claude-code",
@@ -109,7 +109,7 @@
           "value": "8 min"
         }
       ],
-      "imageDigest": "4be440cd54ab42b29aed797d6d85e46e53bee89710765a36eed61be943651341"
+      "imageDigest": "97423aec17c1f4abf315849763ac76b9d356b367d95c31566c6b864d3c7bcb59"
     }
   ]
 }

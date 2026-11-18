@@ -1,6 +1,6 @@
 /* ========================================
    COLOR TOKENS
-   Porcelain paper, neutral ink, and a single ink-blue poster field.
+   Porcelain paper, neutral ink, and a single deep-red poster field.
    Amber remains reserved for live or in-progress values.
    ======================================== */
 
@@ -15,15 +15,15 @@
   --color-fg-light: #646269;
 
   /* ===================
-     ACCENT — ink blue
+     ACCENT — deep dark red
      Structure, links, active state.
      =================== */
-  --color-accent: #36559a;
-  --color-accent-hover: #29447f;
+  --color-accent: #6f1d1a;
+  --color-accent-hover: #591715;
 
-  /* The poster stays deep blue in both themes; page links lighten at night.
+  /* The poster stays deep red in both themes; page links lighten at night.
      Keep this surface and its text separate from the control palette. */
-  --color-hero: #36559a;
+  --color-hero: #6f1d1a;
   --color-on-hero: #faf7ef;
   --color-on-hero-hover: #ebe6da;
 
@@ -39,7 +39,7 @@
 
   /* ===================
      FOCUS RING
-     Blue for controls on paper; ink around blue-filled controls so
+     Accent for controls on paper; ink around filled controls so
      the ring remains distinct from the fill. Contrast is tested below.
      =================== */
   --color-focus-ring: var(--color-accent);

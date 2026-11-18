@@ -1,4 +1,4 @@
-/* One ink-blue field, a square portrait, and a quiet editorial register. */
+/* One deep-red field, a square portrait, and a quiet editorial register. */
 .hero {
   --hero-name-size: clamp(2.5rem, 6.5vw, 4rem);
   --color-focus-ring: var(--color-on-hero);
@@ -9,6 +9,11 @@
   padding: 2.75rem 2.5rem 3rem;
   background: var(--color-hero);
   color: var(--color-on-hero);
+}
+
+.hero ::selection {
+  background-color: var(--color-on-hero);
+  color: var(--color-hero);
 }
 
 .hero-kicker {
@@ -62,7 +67,7 @@
   line-height: 1.5;
 }
 
-/* Its own underline in its own colour: page-link blue disappears into the
+/* Its own underline in its own colour: page-link accent disappears into the
    poster. The colour is named because Safari before 26.2 reads the shorthand
    as the line alone. */
 .hero .hero-highlight,
