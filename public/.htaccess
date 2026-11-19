@@ -1,0 +1,49 @@
+# Apache / LiteSpeed configuration for Next.js Static Export (Hostinger hPanel)
+
+# Enable Directory Browsing Prevention
+Options -Indexes
+
+# Custom 404 Error Handler
+ErrorDocument 404 /404.html
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+
+  # Ensure directories with an index.html are accessed with a trailing slash
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteCond %{REQUEST_URI} !(.*)/$
+  RewriteRule ^(.*)$ $1/ [L,R=301]
+
+  # Serve .html file if the route matches directly (e.g., /404 -> /404.html)
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{REQUEST_FILENAME}.html -f
+  RewriteRule ^(.*)$ $1.html [L]
+</IfModule>
+
+# MIME Types
+<IfModule mod_mime.c>
+  AddType application/json .json
+  AddType application/manifest+json .webmanifest
+  AddType application/xml .xml
+  AddType image/svg+xml .svg
+  AddType text/javascript .mjs
+  AddType font/woff2 .woff2
+</IfModule>
+
+# Cache headers for production assets
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresDefault "access plus 1 day"
+  ExpiresByType text/html "access plus 0 seconds"
+  ExpiresByType text/css "access plus 1 year"
+  ExpiresByType application/javascript "access plus 1 year"
+  ExpiresByType text/javascript "access plus 1 year"
+  ExpiresByType font/woff2 "access plus 1 year"
+  ExpiresByType image/png "access plus 1 month"
+  ExpiresByType image/jpeg "access plus 1 month"
+  ExpiresByType image/webp "access plus 1 month"
+  ExpiresByType image/svg+xml "access plus 1 month"
+  ExpiresByType application/json "access plus 0 seconds"
+</IfModule>
